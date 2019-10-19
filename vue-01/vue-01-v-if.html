@@ -1,0 +1,26 @@
+<!--
+v-if/v-else 等语法的使用
+当在控制台中使用 vm.ok=false 时 输出 No
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if/v-else</title>
+	</head>
+	<body>
+		<div id="vue">
+			<h1 v-if="ok">Yes</h1>
+			<h1 v-else>No</h1>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				ok: true
+			}
+		})
+	</script>
+</html>

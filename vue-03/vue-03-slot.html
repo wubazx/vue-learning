@@ -1,0 +1,62 @@
+<!--
+在 Vue.js 中我们使用 <slot> 元素作为承载分发内容的出口，作者称其为 插槽，可以应用在组合组件的场景中
+this.$emit('自定义事件名', 参数)
+splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目，其中 index 为添加/删除项目的位置，1 表示删除的数量
+
+要操作组件里的元素，先要在组件里的template定义事件->通过组件里methods中的this.$emit('自定义事件名', 参数)
+->找到视图层中定义的事件->找到vue实例中定义的事件，对vue中的实例属性进行操作
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>slot</title>
+	</head>
+	<body>
+		<div id="vue">
+			<todo>
+				<todo-title slot="todo-title" v-bind:title="title"></todo-title>
+				<todo-items slot="todo-items" v-for="(item,index) in todoItems" v-bind:item="item" v-bind:index="index" v-on:remove="removeItem(index)"></todo-items>
+			</todo>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('todo',{
+			template: '<div>\
+                    <slot name="todo-title"></slot>\
+                    <ul>\
+                        <slot name="todo-items"></slot>\
+                    </ul>\
+					   </div>'
+		});
+		
+		Vue.component('todo-title',{
+			props: ['title'],
+			template: '<div>{{title}}</div>'
+		});
+		
+		Vue.component('todo-items',{
+			props: ['item','index'],
+			template: '<li>{{index+1}}:{{item}} <button @click="remove">删除</button></li>',
+			methods: {
+				remove: function(index){
+					this.$emit('remove',index)
+				}	
+			}
+		});
+		
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				title: '今日事情：',
+				todoItems: ['打球','恰饭','睡觉']
+			},
+			methods: {
+				removeItem: function(index){
+					this.todoItems.splice(index,1)
+				}
+			}
+		});
+	</script>
+</html>

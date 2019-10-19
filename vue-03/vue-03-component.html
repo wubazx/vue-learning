@@ -1,0 +1,34 @@
+<!--
+组件是可复用的 Vue 实例，可以重复使用的模板
+Vue.component()：注册组件
+my-component-li：自定义组件的名字
+template：组件的模板
+props: 往主件中传递参数
+v-bind:item="item"：将遍历的 item 项绑定到组件中 props 定义的名为 item 属性上；
+					= 号左边的 item 为 props 定义的属性名，右边的为 item in items 中遍历的 item 项的值
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>component</title>
+	</head>
+	<body>
+		<div id="vue">
+			<my-component-li v-for="item in items" v-bind:item="item" />
+		</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		Vue.component('my-component-li',{
+			props: ['item'],
+			template: '<li>Hello {{item}}</li>'
+		})
+		
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				items: ['张三','李四','王五']
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axios-demo</title>
+	</head>
+	<body>
+		<div id="vue">
+			<h1>姓名：{{info.name}}</h1>
+			<h1>链接：{{info.url}}</h1>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el: "#vue",
+			data(){
+				return{
+					info: {
+						name: null,
+						url: null
+					}
+				}
+			},
+			mounted() {
+				axios
+					.get('data.json')
+					.then(response => (this.info=response.data))
+			}
+		})
+	</script>
+</html>

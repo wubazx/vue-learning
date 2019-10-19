@@ -1,0 +1,26 @@
+<!--
+在控制台直接输入 vm.message 来修改值，中间是可以省略 data 的，在这个操作中，我并没有主动操作 DOM，就让页面的内容发生了变化，
+这就是借助了 Vue 的 数据绑定 功能实现的；MVVM 模式中要求 ViewModel 层就是使用 观察者模式 来实现数据的监听与绑定，
+以做到数据与视图的快速响应。
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>dataBinding</title>
+	</head>
+	<body>
+		<div id="vue">
+			{{message}}
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				message: 'Hello,Vue!'
+			}
+		})
+	</script>
+</html>

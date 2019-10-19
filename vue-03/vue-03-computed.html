@@ -1,0 +1,39 @@
+<!--
+计算属性是一个能够将计算结果缓存起来的属性（将行为转化成了静态的属性）
+调用方法时，每次都需要进行计算，既然有计算过程则必定产生系统开销，那如果这个结果是不经常变化的呢？
+此时就可以考虑将这个结果缓存起来，采用计算属性可以很方便的做到这一点；
+计算属性的主要特性就是为了将不经常变化的计算结果进行缓存，以节约我们的系统开销
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>computed</title>
+	</head>
+	<body>
+		<div id="vue">
+			<h1>{{currentTime1()}}</h1>
+			<h1>{{currentTime2}}</h1>
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				message: 'hello'
+			},
+			methods: {
+				currentTime1: function(){
+					return Date.now();
+				}
+			},
+			computed: {
+				currentTime2: function(){
+					this.message;//改变message的值,才会重新计算,并缓存
+					return Date.now();
+				}
+			}
+		});
+	</script>
+</html>

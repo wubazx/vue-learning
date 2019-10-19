@@ -1,0 +1,65 @@
+<!--
+ v-model 指令在表单 <input>、<textarea> 及 <select> 元素上创建双向数据绑定。
+ 它会根据控件类型自动选取正确的方法来更新元素。尽管有些神奇，但 v-model 本质上不过是语法糖。
+ 它负责监听用户的输入事件以更新数据，并对一些极端场景进行一些特殊处理。
+
+注意：v-model 会忽略所有表单元素的 value、checked、selected 特性的初始值而总是将 Vue 实例的数据作为数据来源。
+你应该通过 JavaScript 在组件的 data 选项中声明初始值。
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model</title>
+	</head>
+	<body>
+		<div id="vue">
+			<!--单文本行-->
+			<input type="text" v-model="text.message"/><br/>
+			<hr />
+			<!--多文本行-->
+			<textarea rows="2" cols="15" v-model="textarea.message"></textarea>
+			<hr />
+			<!--单复选框-->
+			单：<input type="checkbox" v-model="checkbox.checked" />
+			<hr />
+			<!--多复选框-->
+			多：<input type="checkbox" value="张三" v-model="checkbox.checkedNames"/>
+				<label>张三</label>
+				<input type="checkbox" value="李四" v-model="checkbox.checkedNames"/>
+				<label>李四</label>
+				<input type="checkbox" value="王五" v-model="checkbox.checkedNames"/>
+				<label>王五</label>
+				<span>选中的姓名为：{{checkbox.checkedNames}}</span>
+			<hr />
+		  按钮：<input type="radio" value="one" v-model="radio.picked"/>
+				<label>one</label>
+				<input type="radio" value="two" v-model="radio.picked"/>
+				<label>two</label>
+				<span>选中的值为：{{radio.picked}}</span>
+			<hr />
+			<!--下拉菜单-->
+			<select v-model="select.selected">
+				<option value ="">请选择</option>
+				<option value ="a">a</option>
+				<option value ="b">b</option>
+				<option value ="c">c</option>
+			</select>
+			<span>选中的值为：{{select.selected}}</span>
+			
+		</div>
+	</body>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.js"></script>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el: '#vue',
+			data: {
+				text: {message: 'textInitial'},
+				textarea: {message: 'textareaInitial'},
+				checkbox: {checked: true,checkedNames: []},
+				radio: {picked: ''},
+				select: {selected: ''}
+			}
+		})
+	</script>
+</html>
