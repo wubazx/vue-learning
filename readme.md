@@ -14,3 +14,7 @@
 * 组件基础 component
 * 计算属性 computed
 * 内容分发与自定义事件 slot 
+
+---
+### vue-04: webpack使用
+* [webpack简介](./vue-04/webpack/webpack.md)
