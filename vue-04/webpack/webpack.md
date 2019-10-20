@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-### vue-01：vue基本语法的使用
-* vue-if
-* vue-else-if
-* vue-for
-* vue-on
-
----
-### vue-02: Axios异步通信框架的使用
-* Axion-demo
-
----
-### vue-03: vue布局
-* 表单输入 v-model
-* 组件基础 component
-* 计算属性 computed
-* 内容分发与自定义事件 slot 
-=======
 ### webpack 简介
 webpack是一个前端模块加载和打包工具，它可以将许多松散耦合的模块按照依赖和规则打包成符合生产环境部署的前端资源。
 还可以将按需加载的模块进行代码分离，等到实际需要时再异步加载。通过 loader 转换，任何形式的资源都可以当做模块，
@@ -58,4 +40,3 @@ npm install webpack-cli -g
  ---
  ### 运行 
  执行 "webpack" 命令
->>>>>>> webpack study
