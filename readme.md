@@ -22,3 +22,7 @@
 ---
 ### vue-05: 第一个vue应用
 * [简介](./vue-05/hello-vue/README.md)
+
+---
+### 说明
+* 会不定期更新，联系我：wmnihaoya@qq.com
