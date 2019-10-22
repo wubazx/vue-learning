@@ -1,6 +1,5 @@
 ### 说明
-这是一个由vue-cli创建的vue应用demo
-实现简单的登录，路由嵌套
+* 这是一个由vue-cli创建的vue应用demo，实现简单的登录，路由嵌套
 ---
 ### 环境
 * Node.js(v12.12.0)
@@ -8,11 +7,11 @@
 
 ---
 ### 启动
-进入hello-vue目录
+* 进入hello-vue目录
 ```
 npm run dev
 ```
-在浏览器输入 http://localhost:8081/login 
+* 在浏览器输入 http://localhost:8081/login
 
 ---
 > 下面为创建一个vue应用的准备
