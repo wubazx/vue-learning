@@ -20,6 +20,8 @@ Vue.use(ElementUI);
 
 new Vue({
   el: '#app',
+  components: { App },
+  template: '<App/>',
   // 启用路由
   router,
   // 启用 ElementUI

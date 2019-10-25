@@ -63,10 +63,14 @@
        // 为表单绑定验证功能
        this.$refs[formName].validate((valid) => {
          if (valid) {
-           // 设置用户登录成功
-           sessionStorage.setItem('isLogin', 'true');
-           // 使用 vue-router 路由到指定页面，该方式称之为编程式导航
-           this.$router.push("/main");
+           //如果本地初步校验成功，则将数据通过Axios发到后台校验
+          //先封装要传递的数据
+                     var params=new URLSearchParams();
+                     params.append('username',this.form.username);
+                     params.append('password',this.form.password);
+                     this.axios.post('http://localhost:8080/login',params)
+                     				 .then((response)=>{console.log(response),this.$router.push("/main");})
+                     				 .catch((err)=>{console.log(err)});
          } else {
             this.$message({
                      message: '请输入用户名和密码！',

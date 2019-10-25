@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
+    <img src="../assets/logo.png">
     <h1>{{ msg }}</h1>
+    <router-link to="/login"><el-button>登录</el-button></router-link>
     <h2>Essential Links</h2>
     <ul>
       <li>

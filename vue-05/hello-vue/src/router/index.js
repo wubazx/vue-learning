@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '../views/Login'
 import Main from '../views/Main'
 import NotFound from '../views/NotFound'
+import HelloWorld from '../components/HelloWorld'
 
 //用于嵌套的路由组件
 import NewBlog from '../views/blog/NewBlog'
@@ -13,6 +14,12 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      name: 'HelloWorld',
+      component: HelloWorld
+    }
+    ,
     {
       path: '/login',
       name: 'Login',
